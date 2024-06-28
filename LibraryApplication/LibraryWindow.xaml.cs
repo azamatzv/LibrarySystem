@@ -82,11 +82,19 @@ namespace LibraryApplication
         private void BookrentButton(object sender, RoutedEventArgs e)
         {
             Book selectedbook = Librarydatagrid.SelectedItem as Book;
+
+
             if (selectedbook is not null)
             {
                 Bookrent bookrent = new Bookrent();
                 bookrent.Show();
             }
+            else
+            {
+                MessageBox.Show("Book was not selected" , "Error" , MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+            
             
         }
     }
