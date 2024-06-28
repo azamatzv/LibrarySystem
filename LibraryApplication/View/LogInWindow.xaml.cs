@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.IO;
+using System.Windows;
 
 namespace LibraryApplication.View;
 
@@ -9,15 +10,22 @@ public partial class LogInWindow : Window
         InitializeComponent();
     }
 
-    private void LoginButton_Click(object sender, RoutedEventArgs e)
+    private void LogInButton_Click(object sender, RoutedEventArgs e)
     {
         string username = UsernameTextBox.Text;
         string password = PasswordBox.Password;
 
-        if (IsValidCredentials(username, password))
+        if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
         {
-            MessageBox.Show("Login successful!");
-            this.Close();
+            MessageBox.Show("Please fill in all fields.");
+            return;
+        }
+
+        if (ValidateCredentials(username, password))
+        {
+            MessageBox.Show("Log in successful!");
+            
+            //Windowga
         }
         else
         {
@@ -25,24 +33,48 @@ public partial class LogInWindow : Window
         }
     }
 
-    private bool IsValidCredentials(string username, string password)
+    private bool ValidateCredentials(string username, string password)
     {
-        return username == "admin" && password == "password";
+        string filePath = @"C:\Users\azama\OneDrive\Desktop\LibraryApp\LibrarySystem\LibraryApplication\View\data.txt";
+
+        if (!File.Exists(filePath))
+        {
+            return false;
+        }
+
+        string[] lines = File.ReadAllLines(filePath);
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split(',');
+
+            if (parts.Length >= 5)
+            {
+                string savedUsername = parts[1].Split(':')[1].Trim();
+                string savedPassword = parts[2].Split(':')[1].Trim();
+
+                if (savedUsername == username && savedPassword == password)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
-    private void ShowPasswordButton_Click(object sender, RoutedEventArgs e)
-    {
-        if (PasswordBox.Visibility == Visibility.Visible)
+        private void ShowButtonPasswordClicked(object sender, RoutedEventArgs e)
         {
-            PasswordBox.Visibility = Visibility.Collapsed;
-            PasswordTextBox.Visibility = Visibility.Visible;
-            PasswordTextBox.Text = PasswordBox.Password;
-        }
-        else
-        {
-            PasswordBox.Visibility = Visibility.Visible;
-            PasswordTextBox.Visibility = Visibility.Collapsed;
-            PasswordBox.Password = PasswordTextBox.Text;
+            if (PasswordBox.Visibility == Visibility.Visible)
+            {
+                PasswordBox.Visibility = Visibility.Collapsed;
+                PasswordTextBox.Visibility = Visibility.Visible;
+                PasswordTextBox.Text = PasswordBox.Password;
+            }
+            else
+            {
+                PasswordBox.Visibility = Visibility.Visible;
+                PasswordTextBox.Visibility = Visibility.Collapsed;
+                PasswordBox.Password = PasswordTextBox.Text;
+            }
         }
     }
-}

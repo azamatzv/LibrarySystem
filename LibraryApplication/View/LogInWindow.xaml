@@ -35,18 +35,19 @@
                 x:Name="PasswordBox" 
                 Width="200" 
                 Margin="5"/>
-            
+
             <Button Content="👁"
                 Width="20" 
                 Height="20" 
                 HorizontalAlignment="Right" 
                 VerticalAlignment="Center" 
-                Click="ShowPasswordButton_Click"/>
+                Click="ShowButtonPasswordClicked"/>
 
             <Button
                 Content="Login" 
                 Width="200" 
-                Margin="5"/>
+                Margin="5" 
+                Click="LogInButton_Click"/>
             
         </StackPanel>
 
