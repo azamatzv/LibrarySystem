@@ -1,24 +1,24 @@
-﻿using System.Text;
+﻿using LibraryApplication.View;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace LibraryApplication
+namespace LibraryApplication;
+
+public partial class MainWindow : Window
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public MainWindow()
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+    }
+
+    private void LogInButtonClicked(object sender, RoutedEventArgs e)
+    {
+        LogInWindow logInWindow = new LogInWindow();
+        logInWindow.Show();
+    }
+
+    private void SignUpButtonClicked(object sender, RoutedEventArgs e)
+    {
+        SignUpWindow signUpWindow = new SignUpWindow();
+        signUpWindow.Show();
     }
 }
