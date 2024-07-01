@@ -1,6 +1,7 @@
 ﻿using LibraryApplication.Datas;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -51,8 +52,6 @@ namespace LibraryApplication
             Librarydatagrid.ItemsSource = books;
         }
 
-
-
         public List<Book> Fillingwithdatas()
         {
             var storedjsondata = _httpClient.GetStringAsync(url).Result;
@@ -93,9 +92,37 @@ namespace LibraryApplication
             {
                 MessageBox.Show("Book was not selected" , "Error" , MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
 
-            
-            
+        private void ToggleDrawer(object sender, RoutedEventArgs e)
+        {
+            if (DrawerPanel.Visibility == Visibility.Collapsed)
+            {
+                DrawerPanel.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                DrawerPanel.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void LogOutClicked(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+
+        private void EditAccClicked(object sender, RoutedEventArgs e)
+        {
+            EditAccountWindow editAccountWindow = new EditAccountWindow();
+            editAccountWindow.Show();
+        }
+
+        private void HistoryClicked(object sender, RoutedEventArgs e)
+        {
+            History history = new History();
+            history.Show();
         }
     }
 }

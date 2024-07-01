@@ -63,7 +63,7 @@ Height="60">
             <TextBlock
           Height="50"
           
-          Text="Date of birth"
+          Text="Lease term"
           TextAlignment="Center"
           Padding="10"
           FontSize="18"

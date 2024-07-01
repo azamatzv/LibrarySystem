@@ -36,17 +36,18 @@ namespace LibraryApplication.View
             if (string.IsNullOrEmpty(fullName) || string.IsNullOrEmpty(username) ||
                 string.IsNullOrEmpty(password) || string.IsNullOrEmpty(phoneNumber) || !dateOfBirth.HasValue)
             {
-                MessageBox.Show("Please fill in all fields.");
+                MessageBox.Show("Please fill in all fields.", "Warning", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
                 return;
             }
 
             SaveToFile(fullName, username, password, phoneNumber, dateOfBirth.Value);
 
-            MessageBox.Show("Sign up successful!");
             ClearFields();
 
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
+            LibraryWindow libraryWindow = new LibraryWindow();
+            libraryWindow.Show();
+            this.Close();
+
         }
 
         private void ClearFields()
@@ -59,7 +60,8 @@ namespace LibraryApplication.View
         }
         private void SaveToFile(string fullName, string username, string password, string phoneNumber, DateTime dateOfBirth)
         {
-            string filePath = @"C:\Users\azama\OneDrive\Desktop\LibraryApp\LibrarySystem\LibraryApplication\View\data.txt";
+            string directoryPath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "data");
+            string filePath = System.IO.Path.Combine(directoryPath, @"C:\Users\azama\OneDrive\Desktop\LibrarySystem\LibraryApplication\View\data.txt");
             string userData = $"Full Name: {fullName}, " +
                               $"Username: {username}, " +
                               $"Password: {password}, " +

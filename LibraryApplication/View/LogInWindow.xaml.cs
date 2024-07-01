@@ -17,25 +17,26 @@ public partial class LogInWindow : Window
 
         if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
         {
-            MessageBox.Show("Please fill in all fields.");
+            MessageBox.Show("Please fill in all fields.", "Warning", MessageBoxButton.OKCancel, MessageBoxImage.Warning);
             return;
         }
 
         if (ValidateCredentials(username, password))
-        {
-            MessageBox.Show("Log in successful!");
-            
-            //Windowga
+        {   
+            LibraryWindow libraryWindow = new LibraryWindow();
+            libraryWindow.Show();
+            this.Close();
         }
         else
         {
-            MessageBox.Show("Invalid username or password.");
+            MessageBox.Show("Invalid username or password.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 
     private bool ValidateCredentials(string username, string password)
     {
-        string filePath = @"C:\Users\azama\OneDrive\Desktop\LibraryApp\LibrarySystem\LibraryApplication\View\data.txt";
+        string directoryPath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "data");
+        string filePath = System.IO.Path.Combine(directoryPath, @"C:\Users\azama\OneDrive\Desktop\LibrarySystem\LibraryApplication\View\data.txt");
 
         if (!File.Exists(filePath))
         {

@@ -7,26 +7,31 @@
         mc:Ignorable="d"
         Title="LibraryWindow" Height="450" Width="800">
     <Grid>
+
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
-        
+
         <StackPanel
               Grid.Row="1">
             <DataGrid
-         VerticalAlignment="Center"
-         HorizontalAlignment="Center"
-         x:Name="Librarydatagrid"
-         FontSize="17"
-         Height="550"
-         Margin="30"
-         BorderThickness="3"
-         ColumnWidth="200"
-         Width="1400"
-         
-         />
-
+                VerticalAlignment="Center"
+                BorderBrush="Black"
+                BorderThickness="2"
+                HorizontalAlignment="Center"
+                x:Name="Librarydatagrid"
+                FontSize="17"
+                Height="600"
+                FontWeight="DemiBold"
+                ColumnWidth="200"
+                Width="1250"
+                Margin="0 20 180 0"
+                CanUserAddRows="False"
+                CanUserDeleteRows="False"
+                CanUserReorderColumns="False"
+                CanUserResizeRows="False"
+                CanUserSortColumns="False"/>
         </StackPanel>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -38,7 +43,7 @@
                 Grid.Column="1"
                 Background="DarkGreen"
                 Height="50"
-                Width="120"
+                Width="150"
                 BorderBrush="White"
                 BorderThickness="3"
                 FontSize="18"
@@ -47,44 +52,75 @@
                 Cursor="Hand"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Left"
-                Margin="70 0 0 0"
+                Margin="-125 0 400 0"
                 Click="BookrentButton"
                 
                 />
 
             <Button
                Grid.Column="0"
-               Background="Gray"
+               Background="Lavender"
                Height="50"
-               Width="100"
+               Width="60"
                VerticalAlignment="Center"
                HorizontalAlignment="Right"
-               BorderBrush="White"
-               BorderThickness="3"
-               Content="Search"
+               BorderBrush="Black"
+               BorderThickness="2"
+               Content="🔍"
+                Cursor="Wait"
+               Foreground="Black"
                FontSize="18"
-               Cursor="Hand"
-               Margin="0 0 70 0"
+               
+               Margin="0 0 240 0"
                Click="SearchButton"
-                Foreground="White"
+                
                 
                 
          />
             <TextBox
          x:Name="searchtextbox"
          Background="Lavender"
-         BorderThickness="3"
-         BorderBrush="White"
+         BorderThickness="2"
+         BorderBrush="Black"
          Height="50"
          Width="400"
          VerticalContentAlignment="Bottom"
          HorizontalAlignment="Left"
-         Margin="100 0 0 0"
+         Margin="60 0 190 0"
          FontSize="18"
          Foreground="Black"
-         Padding="10"
-         
-         />
+         Padding="10"/>
         </Grid>
+
+
+        <Button 
+            Content="History books" 
+            FontSize="16" 
+            FontWeight="Bold" 
+            Margin="1350,400,0,100" 
+            Height="50"
+            Width="150"
+            Click="HistoryClicked" Grid.Row="1"/>
+
+        <Grid x:Name="MainContentGrid">
+            <Button Content="Account" Width="150" Height="50" Click="ToggleDrawer" Margin="500 0 0 0"/>
+        </Grid>
+
+        <Grid x:Name="DrawerPanel" Background="WhiteSmoke" Width="350" Height="1000" HorizontalAlignment="Right" Visibility="Collapsed" VerticalAlignment="Top">
+            <StackPanel>
+                <Button Content="Edit Account" FontSize="28" FontWeight="Bold" Margin="20 50 20 0" Click="EditAccClicked"/>
+                <TextBlock x:Name="txtDisplay" Grid.Row="1" Margin="10" TextWrapping="Wrap" />
+            </StackPanel>
+        </Grid>
+
+
+        <StackPanel
+            Grid.Row="1"
+        >
+            <Button Content="Log Out" Background="OrangeRed" Width="150" Height="50" Foreground="White" FontSize="20" Margin="1350 560 0 0" Click="LogOutClicked"/>
+
+        </StackPanel>
+
+
     </Grid>
 </Window>

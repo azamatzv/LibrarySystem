@@ -11,7 +11,7 @@
         <Button
             Height="50"
             Width="150"
-            Margin="0 0 0 200"
+            Margin="0 320 190 50"
             Background="CadetBlue"
             FontSize="20"
             Content="Log In"
@@ -24,7 +24,7 @@
         <Button
             Height="50"
             Width="150"
-            Margin="0 100 0 0"
+            Margin="220 270 0 0"
             Background="CadetBlue"
             FontSize="20"
             Content="Sign Up"
@@ -34,6 +34,32 @@
             FontWeight="DemiBold" Click="SignUpButtonClicked"/>
 
 
+        <TextBlock
+            Height="60"
+            Width="220"
+            Margin="0 0 0 380 "
+            Text="Library System 📖"
+            Foreground="DeepSkyBlue"
+            FontSize="25"
+            />
+
+        <TextBlock
+            Height="100"
+            Width="300"
+            Text="Welcome"
+            FontSize="50"
+            Padding="10"
+            Margin="60 0 0 160"
+            />
+
+        <TextBlock
+          Height="60"
+          Width="400"
+          Margin="0 0 0 30 "
+          Text="Log in to your account to enter the system"
+          Foreground="Gray"
+          FontSize="20"
+             />
     </Grid>
     
 </Window>

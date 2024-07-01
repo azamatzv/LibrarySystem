@@ -5,9 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibraryApplication.View"
         mc:Ignorable="d"
-        Title="SignUpWindow" Height="450" Width="800">
+        Title="SignUpWindow" Height="600" Width="800">
     <Grid>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+
+        <TextBlock 
+            Text="Sign Up"
+            FontSize="30"
+            Foreground="Black"
+            Height="100"
+            Width="200"
+            Margin="80 0 0 260"
+            FontWeight="Bold"
+            />
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 50 0 0">
             <TextBlock Text="Full Name:" Margin="5"/>
             <TextBox x:Name="FullNameTextBox" Width="200" Margin="5"/>
             <TextBlock Text="Username:" Margin="5"/>
@@ -18,7 +29,7 @@
             <TextBox x:Name="PhoneNumberTextBox" Width="200" Margin="5"/>
             <TextBlock Text="Date of Birth:" Margin="5"/>
             <DatePicker x:Name="DateOfBirthPicker" Width="200" Margin="5"/>
-            <Button Content="Sign Up" Width="200" Margin="5" Click="SignUpClicked"/>
+            <Button Content="Sign Up" Height="30" Width="90" Margin="5" Padding="3" Click="SignUpClicked" Background="CadetBlue" FontWeight="DemiBold" Foreground="White"/>
         </StackPanel>
     </Grid>
 </Window>

@@ -5,8 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LibraryApplication.View"
         mc:Ignorable="d"
-        Title="LogInWindow" Height="250" Width="400">
+        Title="LogInWindow" Height="350" Width="400">
+    
+   
+
+    
+
+
     <Grid Background="#FFC4CCC5">
+
+        <TextBlock 
+            Text="Log In"
+            FontSize="30"
+            Foreground="Black"
+            Height="100"
+            Width="200"
+            Margin="100 0 0 160 "
+            FontWeight="Bold"
+            />
 
         <StackPanel 
             
@@ -42,13 +58,16 @@
                 HorizontalAlignment="Right" 
                 VerticalAlignment="Center" 
                 Click="ShowButtonPasswordClicked"/>
-
-            <Button
+            <Button   
                 Content="Login" 
-                Width="200" 
-                Margin="5" 
-                Click="LogInButton_Click"/>
-            
+                Width="90" 
+               Padding="3"
+                Background="CadetBlue"
+                Click="LogInButton_Click"
+                FontWeight="DemiBold"
+                FontSize="15"
+                Foreground="White"/>
+
         </StackPanel>
 
     </Grid>

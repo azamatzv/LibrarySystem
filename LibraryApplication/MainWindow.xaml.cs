@@ -14,13 +14,13 @@ public partial class MainWindow : Window
     {
         LogInWindow logInWindow = new LogInWindow();
         logInWindow.Show();
+        this.Close();
     }
 
     private void SignUpButtonClicked(object sender, RoutedEventArgs e)
     {
-            LibraryWindow libraryWindow = new LibraryWindow();
-            libraryWindow.Show();
         SignUpWindow signUpWindow = new SignUpWindow();
         signUpWindow.Show();
+        this.Close();
     }
 }

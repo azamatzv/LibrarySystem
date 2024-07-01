@@ -1,5 +1,1 @@
-fullname: dfgh, password: , birthday: , dateform: 28.06.2024 16:14:45
-fullname: kjhgfd, password: , birthday: , dateform: 28.06.2024 16:16:11
-fullname: , password: , birthday: , dateform: 28.06.2024 16:18:30
-fullname: 7uy6t, password: iuy76, birthday: 07.06.2024, dateform: 28.06.2024 16:18:30
-fullname: khyu, password: kj, birthday: 31.05.2024, dateform: 28.06.2024 16:20:09
+fullname: To Kill, password: 23453456, birthday: 7/8/2024, dateform: 7/1/2024 6:39:57 AM
